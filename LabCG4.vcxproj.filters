@@ -11,22 +11,40 @@
     <Filter Include="Color">
       <UniqueIdentifier>{dacbbc48-594c-4838-9735-40eee694eb48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Painter">
+      <UniqueIdentifier>{f63abe64-acc2-4517-9319-df477c9ff32e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\HyperbolicParaboloid">
+      <UniqueIdentifier>{db073f9e-f998-4925-9b74-d06c729529c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Icosahedron.cpp">
-      <Filter>Primitives</Filter>
-    </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>Color</Filter>
     </ClCompile>
+    <ClCompile Include="Painter.cpp">
+      <Filter>Painter</Filter>
+    </ClCompile>
+    <ClCompile Include="HyperbolicParaboloid.cpp">
+      <Filter>Primitives\HyperbolicParaboloid</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Icosahedron.h">
-      <Filter>Primitives</Filter>
-    </ClInclude>
     <ClInclude Include="Color.h">
       <Filter>Color</Filter>
+    </ClInclude>
+    <ClInclude Include="Painter.h">
+      <Filter>Painter</Filter>
+    </ClInclude>
+    <ClInclude Include="Dodecahedron.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="HyperbolicParaboloid.h">
+      <Filter>Primitives\HyperbolicParaboloid</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Primitives</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

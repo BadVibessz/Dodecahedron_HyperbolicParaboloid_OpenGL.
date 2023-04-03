@@ -146,12 +146,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="Icosahedron.cpp" />
+    <ClCompile Include="HyperbolicParaboloid.cpp" />
+    <ClCompile Include="Painter.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
-    <ClInclude Include="Icosahedron.h" />
+    <ClInclude Include="Dodecahedron.h" />
+    <ClInclude Include="HyperbolicParaboloid.h" />
+    <ClInclude Include="Painter.h" />
+    <ClInclude Include="Point.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
