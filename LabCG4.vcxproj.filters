@@ -5,16 +5,19 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Primitives">
-      <UniqueIdentifier>{656fdfd7-2a22-4324-a9df-afc5f97832ad}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Color">
       <UniqueIdentifier>{dacbbc48-594c-4838-9735-40eee694eb48}</UniqueIdentifier>
     </Filter>
     <Filter Include="Painter">
       <UniqueIdentifier>{f63abe64-acc2-4517-9319-df477c9ff32e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Primitives\HyperbolicParaboloid">
+    <Filter Include="Primitives">
+      <UniqueIdentifier>{656fdfd7-2a22-4324-a9df-afc5f97832ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\Surfaces">
+      <UniqueIdentifier>{e657cb42-da5f-472a-8024-f88a129afdd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\Surfaces\HyperbolicParaboloid">
       <UniqueIdentifier>{db073f9e-f998-4925-9b74-d06c729529c0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -27,7 +30,10 @@
       <Filter>Painter</Filter>
     </ClCompile>
     <ClCompile Include="HyperbolicParaboloid.cpp">
-      <Filter>Primitives\HyperbolicParaboloid</Filter>
+      <Filter>Primitives\Surfaces\HyperbolicParaboloid</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Primitives\Surfaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,10 +47,13 @@
       <Filter>Primitives</Filter>
     </ClInclude>
     <ClInclude Include="HyperbolicParaboloid.h">
-      <Filter>Primitives\HyperbolicParaboloid</Filter>
+      <Filter>Primitives\Surfaces\HyperbolicParaboloid</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Primitives\Surfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

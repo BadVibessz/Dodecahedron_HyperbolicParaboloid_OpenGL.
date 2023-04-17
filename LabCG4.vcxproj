@@ -149,6 +149,7 @@
     <ClCompile Include="HyperbolicParaboloid.cpp" />
     <ClCompile Include="Painter.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="HyperbolicParaboloid.h" />
     <ClInclude Include="Painter.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Surface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

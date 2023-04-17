@@ -20,12 +20,16 @@ float yDiff = 100.f;
 float closeness = -4.f; // from -20 to - 4
 
 auto dodecahedron = Dodecahedron();
-auto paraboloid = HyperbolicParaboloid(1, 1);
+auto paraboloid = HyperbolicParaboloid(1, 1, 100, 100);
 
+int currentWidth = 600, currentHeight = 480;
 
 
 static void Resize(int width, int height)
 {
+	currentWidth = width;
+	currentHeight = height;
+
 	const float aspectRatio = (float)width / (float)height;
 
 	glViewport(0, 0, width, height);
@@ -46,11 +50,12 @@ void DisplayInit()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	glPushMatrix();
-	glTranslatef(0, 0, closeness); // приближаем/отдаляем
+	// умножает текущую матрицу на матрицу перевода
+	glTranslatef(0, 0, closeness); // приближаем / отдаляем
 
-	glRotatef(xRotation, 1.0f, 0.0f, 0.0f);  // поворот вокруг оси x
-	glRotatef(yRotation, 0.0f, 1.0f, 0.0f); // поворот вокруг оси y
+	glRotatef(xRotation, 0.0f, 1.0f, 0.0f);  // поворот вокруг оси x
+	glRotatef(yRotation, -1.0f, 0.0f, 0.0f);  // поворот вокруг оси x
+	//glRotatef(yRotation, 0.0f, 1.0f, 0.0f); // поворот вокруг оси y
 }
 
 void DisplayDodecahedron()
@@ -77,10 +82,14 @@ void MouseFunction(int button, int state, int x, int y)
 		switch (button)
 		{
 		case GLUT_LEFT_BUTTON:
+
 			isMouseDown = true;
 
-			xDiff = x - yRotation;
-			yDiff = -y + xRotation;
+			/*xDiff = x - yRotation;
+			yDiff = -y + xRotation;*/
+
+			xDiff = x - xRotation;
+			yDiff = -y + yRotation;
 			break;
 		}
 	}
@@ -92,8 +101,11 @@ void MouseMotionFunction(int x, int y)
 {
 	if (isMouseDown)
 	{
-		yRotation = x - xDiff;
-		xRotation = y + yDiff;
+		/*yRotation = x - xDiff;
+		xRotation = y + yDiff;*/
+
+		xRotation = x - xDiff;
+		yRotation = y + yDiff;
 
 		glutPostRedisplay();
 	}
@@ -105,12 +117,10 @@ void KeyboardFunction(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		if (closeness + speed <= -4)
-			closeness += speed;
+		closeness += speed;
 		break;
 	case 's':
-		if (closeness - speed >= -20)
-			closeness -= speed;
+		closeness -= speed;
 		break;
 	}
 
@@ -135,6 +145,10 @@ static void InitializeWindow(int width, int height, int x, int y, const char* ti
 	glutKeyboardFunc(&KeyboardFunction);
 
 	glutReshapeFunc(&Resize);
+
+	glEnable(GL_BLEND); // смешивание цветов
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 
 	glEnable(GLUT_MULTISAMPLE); // сглаживание
 	glEnable(GL_DEPTH_TEST); // включает сравнивания глубин и запись в буффер глубины

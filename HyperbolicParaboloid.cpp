@@ -1,33 +1,16 @@
 #include "HyperbolicParaboloid.h"
 
-HyperbolicParaboloid::HyperbolicParaboloid(float a, float b, float x1, float x2,
-	float y1, float y2, float step1, float step2)
+HyperbolicParaboloid::HyperbolicParaboloid(float a, float b, int columns, int rows,
+	float xMin, float xMax, float yMin, float yMax) : Surface(xMin, xMax, yMin, yMax, columns, rows)
 {
-	vertices = vector<Point*>();
 
-	this->xMin = x1;
-	this->xMax = x2;
-	this->yMin = y1;
-	this->yMax = y2;
+	this->a = a;
+	this->b = b;
 
-	xStep = step1;
-	yStep = step2;
-
-	float x = xMin;
-	float y;
-	float z;
-
-	while (x <= xMax)
-	{
-		y = yMin;
-		while (y <= yMax)
-		{
-			z = ((pow(x, 2) / pow(a, 2)) - (pow(y, 2) / pow(b, 2))) / 2.f;
-
-			vertices.push_back(new Point(x, y, z));
-			y += yStep;
-		}
-		x += xStep;
-	}
 }
 
+Point HyperbolicParaboloid::GetPoint(double x, double y)
+{
+	double z = ((pow(x, 2) / pow(a, 2)) - (pow(y, 2) / pow(b, 2))) / 2.f;
+	return Point(x, y, z);
+}

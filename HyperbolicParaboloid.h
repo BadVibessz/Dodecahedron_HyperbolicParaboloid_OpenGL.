@@ -1,22 +1,25 @@
 #pragma once
 #include <vector>
 
-#include "GL/glut.h"
-#include "Point.h"
+#include "Surface.h"
 
 using namespace std;
 
-class HyperbolicParaboloid
+class HyperbolicParaboloid : public Surface
 {
 public:
-	vector<Point*> vertices;
 
-	float xMin, xMax, yMin, yMax;
 	float a, b;
 
-	float yStep, xStep;
+	HyperbolicParaboloid(float a, float b, int columns, int rows, float xMin = -2.f, float xMax = 2.f,
+		float yMin = -2.f, float yMax = 2.f);
 
-	HyperbolicParaboloid(float a, float b, float x1 = -2.f, float x2 = 2.f,
-		float y1 = -2.f, float y2 = 2.f, float step1 = 0.01f, float step2 = 0.01f);
+	Point GetPoint(double x, double y) override;
+
+
+private:
+
+
+
 };
 
